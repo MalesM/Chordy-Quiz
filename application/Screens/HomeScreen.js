@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet, Image } from 'react-native';
 
 export default class HomeScreen extends React.Component {
 
@@ -22,6 +22,7 @@ export default class HomeScreen extends React.Component {
             onPress={() => navigate('Chords')}
           />
         </View>
+        
       </View>
     );
   }
@@ -29,6 +30,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   buttonsWrap: {
+    
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
 
-    height: 50,
+    
     width: 200,
 
   }
