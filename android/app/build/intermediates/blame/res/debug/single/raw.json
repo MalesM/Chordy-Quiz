@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\gm.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\gm.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\am.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\am.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\g.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\g.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\b.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\b.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\fm.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\fm.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\e.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\e.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\bm.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\bm.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\dm.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\dm.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\f.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\f.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\em.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\em.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\cm.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\cm.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\c.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\c.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\d.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\d.mp3"
+    },
+    {
+        "merged": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw\\a.mp3",
+        "source": "E:\\projekti\\reactNative\\ChordyGame\\android\\app\\src\\main\\res\\raw\\a.mp3"
+    }
+]

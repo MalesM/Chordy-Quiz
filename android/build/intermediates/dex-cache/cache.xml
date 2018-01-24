@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\projekti\reactNative\ChordyGame\android\app\build\intermediates\exploded-aar\ChordyGame\react-native-sound\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="7928ca2aee98dbdd5120ff66393d67402b5b719c">
+        <dex dex="E:\projekti\reactNative\ChordyGame\android\app\build\intermediates\pre-dexed\debug\ChordyGame-react-native-sound-unspecified_1820238044d3ed4ff4bbe56258f7bd71e893eb19.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\projekti\reactNative\ChordyGame\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
