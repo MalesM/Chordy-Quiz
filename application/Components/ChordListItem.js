@@ -14,7 +14,7 @@ export default class ChordListItem extends React.Component{
   render(){
     return(
       <View style={styles.container}> 
-        <Image source={this.props.imageSource} style={{height:100, width:100}}/>
+        <Image source={this.props.imageSource} style={{height:90, width:90}}/>
         <Text>{this.props.chordName}</Text>
         <Button title='play' onPress={() => this.play()} />
       </View>
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 5,
-    margin: 5
+    margin: 5,
+    borderWidth: 1
 
   }
 });

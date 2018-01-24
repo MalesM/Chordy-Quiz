@@ -6,6 +6,9 @@ import Chords from '../Config/Chords';
 
 export default class ChordList extends React.Component{
 
+  _keyExtractor = (item, index) => item.id;
+  
+
   _playChord (idd) {
     console.log(idd);
   }
@@ -14,11 +17,12 @@ export default class ChordList extends React.Component{
     return(
       <FlatList 
         data={Chords}
+        keyExtractor={this._keyExtractor}
         renderItem={ 
           ({item}) => <ChordListItem 
                         imageSource={item.image}
                         chordName={item.name}
-                        id={`chord ${item.name}`}
+                        id={item.id}
                         playChord={(id) => this._playChord(id)} 
                       />
         }
