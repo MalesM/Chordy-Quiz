@@ -16,7 +16,7 @@ export default class ChordListItem extends React.Component{
       <View style={styles.container}> 
         <Image source={this.props.imageSource} style={{height:90, width:90}}/>
         <Text>{this.props.chordName}</Text>
-        <Button title='play' onPress={() => this.play()} />
+        <Button title='play' onPress={() => this.play()  } disabled={this.props.disableBtn}/>
       </View>
     );
   }

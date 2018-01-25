@@ -22,21 +22,17 @@ export default class ChordList extends React.Component{
         console.log('success');
       }));
     }
-
-    
   }
-
 
   _keyExtractor = (item, index) => item.id;
   
-
   _playChord (idd) {
     console.log(idd);
 
     //this.samples[idd].stop(() => {
+      
       this.samples[idd].play();
     //});
-    
     
   }
 
@@ -50,6 +46,7 @@ export default class ChordList extends React.Component{
                         imageSource={item.image}
                         chordName={item.name}
                         id={item.id}
+                      
                         playChord={(id) => this._playChord(id)} 
                       />
         }
@@ -57,9 +54,3 @@ export default class ChordList extends React.Component{
     );
   }
 }
-
-
-{/* <Image
-          style={{width:100, height:100}}
-          source={require('../Resources/Images/a.png')}
-        /> */}
