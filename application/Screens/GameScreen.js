@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button, ActivityIndicator, ToastAndroid } from 'react-native';
+import { Text, View, StyleSheet, Button, ActivityIndicator, ToastAndroid, Alert } from 'react-native';
 import ChordsGame from '../Config/ChordsGame';
 import Sound from 'react-native-sound';
 
@@ -8,12 +8,14 @@ export default class GameScreen extends React.Component {
     super(props);
 
     this.playFlag = false;
+    this.question = 0;
+    this.score = 0;
 
     this.state = {
       chordsGame: [],
       chordSamples: [],
       answer: 0,
-      score: 0,
+      //score: 0,
       color0: '#dddddd',
       color1: '#dddddd',
       color2: '#dddddd',
@@ -57,6 +59,7 @@ export default class GameScreen extends React.Component {
             chordsGame: newAnswer,
             chordSamples: newSamples,
             answer: position,
+            //score: this.state.score + 1,
             color0: '#dddddd',
             color1: '#dddddd',
             color2: '#dddddd',
@@ -80,10 +83,13 @@ export default class GameScreen extends React.Component {
       this.state.chordSamples[pos].play();
       if (pos === this.state.answer) {
         ToastAndroid.showWithGravity('Correct', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        this.score++;
+        this.question++;
       } else {
         ToastAndroid.showWithGravity('Wrong', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        this.question++;
       }
-      
+
       switch (this.state.answer) {
         case 0:
           this.setState({
@@ -106,7 +112,17 @@ export default class GameScreen extends React.Component {
           });
           break;
       }
-      setTimeout( () => {this.getAnswer(); this.playFlag = false;}, 500);
+      if(this.question === 10){
+        Alert.alert(
+          `Your score is ${this.score}/10`,
+          'Play again?',
+          [
+            {text: 'no', onPress: () => this.props.navigation.navigate('Home')},
+            {text: 'yes', onPress: () => this.resetGame()}
+          ],
+          {cancelable: false}
+        );
+      }else setTimeout(() => { this.getAnswer(); this.playFlag = false; }, 500);
       this.playFlag = false;
 
     } else {
@@ -119,6 +135,20 @@ export default class GameScreen extends React.Component {
     this.playFlag = true;
   }
 
+  resetGame(){
+    this.playFlag = false;
+    this.question = 0;
+    this.score = 0;
+
+    this.setState ( {
+      color0: '#dddddd',
+      color1: '#dddddd',
+      color2: '#dddddd',
+      color3: '#dddddd',
+
+    });
+    this.getAnswer();
+  }
 
   render() {
 
@@ -128,6 +158,9 @@ export default class GameScreen extends React.Component {
       <View style={styles.buttonsContainer}>
         {this.state.chordsGame.length === 0 ? <ActivityIndicator size="large" color="#0000ff" /> :
           <View style={{ flex: 1 }}>
+            <View>
+              <Text>{`Score: ${this.score}/10`}</Text>
+            </View>
             <View style={styles.playButtonC}>
               <Button title='PLAY' onPress={() => this.onPlayBtn()} />
             </View>
@@ -136,15 +169,15 @@ export default class GameScreen extends React.Component {
                 <Button title={this.state.chordsGame[0].name} onPress={() => this.onBtnPress(0)} color={this.state.color0} />
               </View>
               <View style={styles.rightBtn}>
-                <Button title={this.state.chordsGame[1].name} onPress={() => this.onBtnPress(1)} color={this.state.color1}/>
+                <Button title={this.state.chordsGame[1].name} onPress={() => this.onBtnPress(1)} color={this.state.color1} />
               </View>
             </View>
             <View style={styles.downBtns}>
               <View style={styles.leftBtn}>
-                <Button title={this.state.chordsGame[2].name} onPress={() => this.onBtnPress(2)} color={this.state.color2}/>
+                <Button title={this.state.chordsGame[2].name} onPress={() => this.onBtnPress(2)} color={this.state.color2} />
               </View>
               <View style={styles.rightBtn}>
-                <Button title={this.state.chordsGame[3].name} onPress={() => this.onBtnPress(3)} color={this.state.color3}/>
+                <Button title={this.state.chordsGame[3].name} onPress={() => this.onBtnPress(3)} color={this.state.color3} />
               </View>
             </View>
           </View>}
