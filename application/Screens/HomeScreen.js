@@ -12,7 +12,7 @@ export default class HomeScreen extends React.Component {
             style={{ height: 50 }}
 
             title='Game'
-            onPress={() => navigate('Game')}
+            onPress={() => navigate('GamePicker')}
           />
         </View>
         <View style={styles.buttonContainer}>
