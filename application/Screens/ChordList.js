@@ -30,7 +30,7 @@ export default class ChordList extends React.Component {
     console.log(idd);
     this.samples[idd].play();
   }
-
+  
   componentWillUnmount(){
     for(let i = 0; i < this.samples.length; i++){
       this.samples[i].release();

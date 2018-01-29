@@ -12,11 +12,24 @@ export default class GameScreen extends React.Component {
     this.question = 0;
     this.score = 0;
 
+    this.samples = [];
+
+    for(let i = 0; i < ChordsGame.length; i++){
+      this.samples.push(new Sound(ChordsGame[i].sample, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      }));
+    }
+
     this.state = {
-      chordsGame: [],
-      chordSamples: [],
+      //chordsGame: [],
+      //chordSamples: [],
       answer: 0,
-      //score: 0,
+      element: 0,
+      position: 0,
+
       color0: '#A2A9CE',
       color1: '#A2A9CE',
       color2: '#A2A9CE',
@@ -45,44 +58,35 @@ export default class GameScreen extends React.Component {
       position = element - upBorder + 4;
     }
 
-    let cnt = 0;
-    let newSamples = [];
-    let newAnswer = ChordsGame.slice(element - position, element - position + 4);
-    for (let i = 0; i < newAnswer.length; i++) {
-      newSamples.push(new Sound(newAnswer[i].sample, Sound.MAIN_BUNDLE, (error) => {
-        if (error) {
-          console.log('failed to load the sound', error);
-          return;
-        }
-        cnt++;
-        if (cnt === 4) {
-          this.setState({
-            chordsGame: newAnswer,
-            chordSamples: newSamples,
-            answer: position,
-            //score: this.state.score + 1,
-            color0: '#A2A9CE',
-            color1: '#A2A9CE',
-            color2: '#A2A9CE',
-            color3: '#A2A9CE',
+    this.setState({
+      element: element,
+      position: position,
 
-          });
-        }
+      color0: '#A2A9CE',
+      color1: '#A2A9CE',
+      color2: '#A2A9CE',
+      color3: '#A2A9CE',
+    })
+  }
 
-      }));
+  deleteSamples(ns){
+    for(let i = 0; i < ns.length; i++){
+      ns[i].release();
     }
-
-
   }
 
   componentWillMount() {
     this.getAnswer();
   }
 
+  componentWillUnmount(){
+    this.deleteSamples(this.samples);
+  }
+
   onBtnPress(pos) {
     if (this.playFlag === true) {
-      this.state.chordSamples[pos].play();
-      if (pos === this.state.answer) {
+      this.samples[this.state.element - this.state.position + pos].play();
+      if (pos === this.state.position) {
         ToastAndroid.showWithGravity('Correct', ToastAndroid.SHORT, ToastAndroid.CENTER);
         this.score++;
         this.question++;
@@ -91,7 +95,7 @@ export default class GameScreen extends React.Component {
         this.question++;
       }
 
-      switch (this.state.answer) {
+      switch (this.state.position) {
         case 0:
           this.setState({
             color0: '#79F054'
@@ -113,6 +117,7 @@ export default class GameScreen extends React.Component {
           });
           break;
       }
+
       if(this.question === this.questionNumber){
         Alert.alert(
           `Your score is ${this.score}/${this.questionNumber}`,
@@ -132,7 +137,7 @@ export default class GameScreen extends React.Component {
   }
 
   onPlayBtn() {
-    this.state.chordSamples[this.state.answer].play();
+    this.samples[this.state.element].play();
     this.playFlag = true;
   }
 
@@ -159,7 +164,7 @@ export default class GameScreen extends React.Component {
     return (
 
       <View style={styles.buttonsContainer}>
-        {this.state.chordsGame.length === 0 ? <ActivityIndicator size="large" color="#0000ff" /> :
+        {this.samples.length !== ChordsGame.length ? <ActivityIndicator size="large" color="#0000ff" /> :
           <View style={{ flex: 1 }}>
             <View style={{alignItems: 'center'}}>
               <Text>{`Score: ${this.score}/${this.questionNumber}`}</Text>
@@ -169,18 +174,18 @@ export default class GameScreen extends React.Component {
             </View>
             <View style={styles.upBtns}>
               <View style={styles.leftBtn}>
-                <Button title={this.state.chordsGame[0].name} onPress={() => this.onBtnPress(0)} color={this.state.color0} />
+                <Button title={ChordsGame[this.state.element - this.state.position].name} onPress={() => this.onBtnPress(0)} color={this.state.color0} />
               </View>
               <View style={styles.rightBtn}>
-                <Button title={this.state.chordsGame[1].name} onPress={() => this.onBtnPress(1)} color={this.state.color1} />
+                <Button title={ChordsGame[this.state.element - this.state.position + 1].name} onPress={() => this.onBtnPress(1)} color={this.state.color1} />
               </View>
             </View>
             <View style={styles.downBtns}>
               <View style={styles.leftBtn}>
-                <Button title={this.state.chordsGame[2].name} onPress={() => this.onBtnPress(2)} color={this.state.color2} />
+                <Button title={ChordsGame[this.state.element - this.state.position + 2].name } onPress={() => this.onBtnPress(2)} color={this.state.color2} />
               </View>
               <View style={styles.rightBtn}>
-                <Button title={this.state.chordsGame[3].name} onPress={() => this.onBtnPress(3)} color={this.state.color3} />
+                <Button title={ChordsGame[this.state.element - this.state.position + 3].name } onPress={() => this.onBtnPress(3)} color={this.state.color3} />
               </View>
             </View>
           </View>}
