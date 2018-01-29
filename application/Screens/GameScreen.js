@@ -24,19 +24,14 @@ export default class GameScreen extends React.Component {
     }
 
     this.state = {
-      //chordsGame: [],
-      //chordSamples: [],
       answer: 0,
       element: 0,
       position: 0,
-
       color0: '#A2A9CE',
       color1: '#A2A9CE',
       color2: '#A2A9CE',
       color3: '#A2A9CE',
-
     }
-
   }
 
   getAnswer() {
@@ -162,9 +157,7 @@ export default class GameScreen extends React.Component {
   }
 
   render() {
-
     return (
-
       <View style={styles.buttonsContainer}>
         {this.samples.length !== ChordsGame.length ? <ActivityIndicator size="large" color="#0000ff" /> :
           <View style={{ flex: 1 }}>

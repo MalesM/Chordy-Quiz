@@ -19,7 +19,7 @@ export default class ChordList extends React.Component {
           return;
         }
         // loaded successfully
-        console.log('success');
+        
       }));
     }
   }
@@ -27,7 +27,6 @@ export default class ChordList extends React.Component {
   _keyExtractor = (item, index) => item.id;
 
   _playChord(idd) {
-    console.log(idd);
     this.samples[idd].play();
   }
   
