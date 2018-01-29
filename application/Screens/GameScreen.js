@@ -85,7 +85,9 @@ export default class GameScreen extends React.Component {
 
   onBtnPress(pos) {
     if (this.playFlag === true) {
+     
       this.samples[this.state.element - this.state.position + pos].play();
+
       if (pos === this.state.position) {
         ToastAndroid.showWithGravity('Correct', ToastAndroid.SHORT, ToastAndroid.CENTER);
         this.score++;
@@ -166,7 +168,7 @@ export default class GameScreen extends React.Component {
       <View style={styles.buttonsContainer}>
         {this.samples.length !== ChordsGame.length ? <ActivityIndicator size="large" color="#0000ff" /> :
           <View style={{ flex: 1 }}>
-            <View style={{alignItems: 'center'}}>
+            <View style={{alignItems: 'center', marginTop: 10}}>
               <Text>{`Score: ${this.score}/${this.questionNumber}`}</Text>
             </View>
             <View style={styles.playButtonC}>
@@ -200,7 +202,7 @@ const styles = StyleSheet.create({
     marginBottom: 60
   },
   playButtonC: {
-    backgroundColor: '#f00000',
+    //backgroundColor: '#f00000',
     flex: 3,
     justifyContent: 'center',
     paddingLeft: 20,
@@ -208,7 +210,7 @@ const styles = StyleSheet.create({
 
   },
   upBtns: {
-    backgroundColor: 'red',
+    //backgroundColor: 'red',
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
 
   },
   downBtns: {
-    backgroundColor: 'blue',
+    //backgroundColor: 'blue',
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
